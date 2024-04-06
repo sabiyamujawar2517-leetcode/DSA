@@ -6,35 +6,14 @@ using namespace std;
 
 void print3distinctlargest(int arr[], int arr_size) 
 { 
-	int first, second, third; 
-	if (arr_size < 3) 
-	{ 
-		cout << " Invalid Input "; 
-		return; 
-	} 
+ sort(arr, arr + arr_size, greater<int>());
 
-	third = first = second = INT_MIN; 
-	for(int i = 0; i < arr_size; i++) 
-	{ 
-		if (arr[i] > first)
-		{ 
-			third = second; 
-			second = first; 
-			first = arr[i]; 
-		} 
-		else if (arr[i] > second && arr[i] != first)
-		{ 
-			third = second; 
-			second = arr[i]; 
-		} 
-
-		else if (arr[i] > third && arr[i] != second && arr[i] != first) 
-			third = arr[i]; 
-	} 
-
-	cout << "Three largest elements are "
-		<< first << " " << second << " "
-		<< third << endl; 
+    // Print the three largest elements
+    cout << "Three largest elements are ";
+    for (int i = 0; i < 3; i++) {
+        cout << arr[i] << " ";
+    }
+    cout << endl;
 } 
 
 int main() 
